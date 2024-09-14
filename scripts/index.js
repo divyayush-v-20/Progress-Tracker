@@ -1,10 +1,14 @@
 const showLogin = () => {
     document.getElementById('login-form-section').style.display = 'block';
     document.getElementById('signup-form-section').style.display = 'none';
+    document.getElementById('login-btn').style.backgroundColor = '#1db954';
+    document.getElementById('register-btn').style.backgroundColor = 'transparent';
 }
 const showSignup = () => {
     document.getElementById('login-form-section').style.display = 'none';
     document.getElementById('signup-form-section').style.display = 'block';
+    document.getElementById('register-btn').style.backgroundColor = '#1db954';
+    document.getElementById('login-btn').style.backgroundColor = 'transparent';
 }
 
 const togglePasswordVisibility = (passwordID, checkboxID) => {
