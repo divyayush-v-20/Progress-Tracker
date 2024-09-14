@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started</title>
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+<body>
+    <div class="head">
+        <h1>Progress Tracker</h1>
+        <p>Add tasks and track your progress</p>
+    </div>
+    <div class="container">
+        <div class="tabs">
+            <button onclick = "showLogin()">Login</button>
+            <button onclick="showSignup()">Register</button>
+        </div>
+        <div id="login-form-section" class="form-section" style="display: none;">
+            <h2>Login</h2>
+            <br>
+            <form action="" id="login-form">
+                <label for="login-username">Username:</label>
+                <input type="text" id="login-username" name = "new-username" required>
+                <br>
+                <label for="login-password">Password:&nbsp;</label>
+                <input type="password" id="login-password" name = "new-password" required> 
+                <br>
+                <input type="checkbox" id="show-login-password" onclick="togglePasswordVisibility('login-password', 'show-login-password')">
+                <label for="show-login-password">Show Password</label>
+                <br> <br>
+                <button type = "submit">Login</button>
+            </form>
+            <br>
+            <p>Already have an account ? <a href="#" onclick = "showLogin()">Login</a></p>
+        </div>
+        <div id="signup-form-section" class="form-section">
+            <h2>Register</h2>
+            <br>
+            <form action="" id="signup-form">
+                <label for="register-username">Username:</label>
+                <input type="text" id="register-username" name = "new-username" required>
+                <br>
+                <label for="register-password">Password:&nbsp;</label>
+                <input type="password" id="register-password" name = "new-password" required> 
+                <br>
+                <input type="checkbox" id="show-register-password" onclick="togglePasswordVisibility('register-password', 'show-register-password')">
+                <label for="show-password">Show Password</label>
+                <br> <br>
+                <button type = "submit">Register</button>
+            </form>
+            <br>
+            <p>Don't have an account ? <a href="#" onclick = "showSignup()">Register</a></p>
+        </div>
+    </div>
+    
+    <script src="scripts/index.js"></script>
+</body>
+
+</html>
