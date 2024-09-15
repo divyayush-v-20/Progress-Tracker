@@ -22,6 +22,20 @@ const togglePasswordVisibility = (passwordID, checkboxID) => {
     }
 }
 
+const encrypt = (str) => {
+    return str.split('').map(char => {
+        const charCode = char.charCodeAt(0);
+        return String.fromCharCode((charCode + 7) % 128);
+    }).join('');
+}
+
+const decrypt = (str) => {
+    return str.split('').map(char =>{
+        const charCode = char.charCodeAt(0);
+        return String.fromCharCode((charCode - 7 + 128) % 128);
+    }).join('');
+}
+
 const saveData = (username, password) => {
     let users = JSON.parse(localStorage.getItem('users')) || [];
     if(users.some(user => user.username === username)){
@@ -29,7 +43,7 @@ const saveData = (username, password) => {
         return;
     }
 
-    users.push({username : username, password : password, tasks : []});
+    users.push({username : encrypt(username), password : encrypt(password), tasks : []});
     localStorage.setItem('users', JSON.stringify(users));
     console.log('users after saving:', users);    
     alert('User registered successfully!');
@@ -37,6 +51,9 @@ const saveData = (username, password) => {
 }
 
 const authenticateUser = (username, password) => {
+    // encrypting the current username and password as they are stored in encrypted form in the storage
+    username = encrypt(username);
+    password = encrypt(password);
     let users = JSON.parse(localStorage.getItem('users')) || [];
     console.log('users for authentication:', users);
     let user = users.find(user => user.username === username && user.password === password);
