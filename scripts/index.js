@@ -37,6 +37,20 @@ const decrypt = (str) => {
 }
 
 const saveData = (username, password) => {
+
+    if(/\s/.test(username)){
+        alert('Username cannot contain spaces!');
+        return;
+    }
+    if(/\s/.test(password)){
+        alert('Password cannot contain spaces!');
+        return;
+    }
+    if(password.length < 6 || password.length > 20){
+        alert('Password should be between 6 and 20 characters!');
+        return;
+    }
+
     let users = JSON.parse(localStorage.getItem('users')) || [];
     if(users.some(user => user.username === username)){
         alert('User already exists!');
