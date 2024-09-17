@@ -52,7 +52,7 @@ const saveData = (username, password) => {
     }
 
     let users = JSON.parse(localStorage.getItem('users')) || [];
-    if(users.some(user => user.username === username)){
+    if(users.some(user => decrypt(user.username) === username)){
         alert('User already exists!');
         return;
     }
@@ -66,6 +66,7 @@ const saveData = (username, password) => {
 
 const authenticateUser = (username, password) => {
     // encrypting the current username and password as they are stored in encrypted form in the storage
+    let tmp = username;
     username = encrypt(username);
     password = encrypt(password);
     let users = JSON.parse(localStorage.getItem('users')) || [];
@@ -73,6 +74,9 @@ const authenticateUser = (username, password) => {
     let user = users.find(user => user.username === username && user.password === password);
     if(user){
         alert('Login successful!');
+        localStorage.setItem('currentUser', tmp);
+        console.log('current user : ', localStorage.getItem('currentUser'));
+        window.location.href = 'pages/main.html';
     }
     else{
         alert('Invalid username or password');
