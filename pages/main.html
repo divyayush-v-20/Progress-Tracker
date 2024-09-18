@@ -3,9 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Track your Progress</title>
+    <title>Progress Tracker - Main</title>
+    <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
-    <script src="main.js"></script>
+    <center><h2 id="greeting"></h2></center>
+    <div class="header">
+        <h1>Progress Tracker</h1>
+        <button id="logout-btn">Logout</button>
+    </div>
+    <div class="main-content">
+        <div class="task-section">
+            <h2>Tasks</h2>
+            <div class="task-input-group">
+                <input type="text" id="task-input" placeholder="Enter a new task">
+                <button id="add-task-btn">Add Task</button>
+            </div>
+            <ul id="task-list"></ul>
+        </div>
+        <div class="progress-section">
+            <h2>Your Progress</h2>
+            <div id="progress-circle"></div>
+            <p id="progress-text">0% Complete</p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/progressbar.js/1.1.0/progressbar.min.js"></script>
+    <script src="../scripts/main.js"></script>
 </body>
 </html>
