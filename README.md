@@ -12,7 +12,6 @@ A web-based progress tracker built with HTML, CSS, and JavaScript, featuring use
 - **Task Filtering**: Filter tasks based on their status (e.g., pending or complete).
 - **Responsive Design**: Adapts to different screen sizes for a seamless experience on desktop or mobile devices.
 
-<br>
 # Directory Structure
 
 ```bash
@@ -28,7 +27,6 @@ ProgressTracker/
 │   ├── index.css
 │   └── main.css
 ```
-<br>
 # Deployment Link
 ```
 https://progress-tracker-eight.vercel.app/
