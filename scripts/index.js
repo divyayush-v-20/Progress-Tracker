@@ -14,11 +14,14 @@ const showSignup = () => {
 const togglePasswordVisibility = (passwordID, checkboxID) => {
     const password = document.getElementById(passwordID);
     const showPass = document.getElementById(checkboxID);
+    const confirm = document.getElementById('confirm-password');
     if(showPass.checked){
         password.type = 'text';
+        confirm.type = 'text';
     }
     else{
         password.type = 'password';
+        confirm.type = 'password';
     }
 }
 
@@ -36,7 +39,7 @@ const decrypt = (str) => {
     }).join('');
 }
 
-const saveData = (username, password) => {
+const saveData = (username, password, confirm, name) => {
 
     if(/\s/.test(username)){
         alert('Username cannot contain spaces!');
@@ -50,6 +53,10 @@ const saveData = (username, password) => {
         alert('Password should be between 6 and 20 characters!');
         return;
     }
+    if(password != confirm){
+        alert("Passwords don't match!");
+        return;
+    }
 
     let users = JSON.parse(localStorage.getItem('users')) || [];
     if(users.some(user => decrypt(user.username) === username)){
@@ -57,7 +64,7 @@ const saveData = (username, password) => {
         return;
     }
 
-    users.push({username : encrypt(username), password : encrypt(password), tasks : []});
+    users.push({username : encrypt(username), password : encrypt(password), name : encrypt(name), tasks : []});
     localStorage.setItem('users', JSON.stringify(users));
     console.log('users after saving:', users);    
     alert('User registered successfully!');
@@ -94,5 +101,7 @@ document.getElementById('signup-form').addEventListener('submit', function(e){
     e.preventDefault();
     const username = document.getElementById('register-username').value.trim();
     const password = document.getElementById('register-password').value;
-    saveData(username, password);
+    const confirm = document.getElementById('confirm-password').value;
+    const name = document.getElementById('f-name').value.trim();
+    saveData(username, password, confirm, name);
 });

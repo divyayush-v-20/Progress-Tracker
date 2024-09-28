@@ -1,5 +1,16 @@
-let currentUser = localStorage.getItem('currentUser');
-let users = JSON.parse(localStorage.getItem('users')) || [];
+const currentUser = localStorage.getItem('currentUser');
+const users = JSON.parse(localStorage.getItem('users')) || [];
+const userObject = users.find(user => user.username == encrypt(currentUser));
+const name = decrypt(userObject.name);
+
+console.log(name);
+
+let displayName = currentUser;
+
+if(name){
+    displayName = name;
+}
+
 let tasks = [];
 
 function loadTasks() {
@@ -118,6 +129,6 @@ document.getElementById('task-input').addEventListener('keypress', function(e) {
 document.getElementById('logout-btn').addEventListener('click', logout);
 
 let greeting = document.getElementById('greeting');
-greeting.innerText = `Welcome ${currentUser}`;
+greeting.innerText = `Welcome ${displayName}`;
 
 loadTasks();

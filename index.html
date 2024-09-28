@@ -8,8 +8,8 @@
 </head>
 <body>
     <div class="head">
-        <h1>Progress Tracker</h1>
-        <p>Add tasks and track your progress</p>
+        <h2>Progress Tracker</h1>
+        <p>Tracking, simplified!</p>
     </div>
     <div class="container">
         <div class="tabs">
@@ -20,11 +20,9 @@
             <h2>Login</h2>
             <br>
             <form action="" id="login-form">
-                <label for="login-username">Username:</label>
-                <input type="text" id="login-username" name = "new-username" required>
+                <input type="text" id="login-username" name = "new-username" placeholder="Username" required>
                 <br>
-                <label for="login-password">Password:&nbsp;</label>
-                <input type="password" id="login-password" name = "new-password" required> 
+                <input type="password" id="login-password" name = "new-password" placeholder="Password" required> 
                 <br>
                 <input type="checkbox" id="show-login-password" onclick="togglePasswordVisibility('login-password', 'show-login-password')">
                 <label for="show-login-password">Show Password</label>
@@ -38,11 +36,13 @@
             <h2>Register</h2>
             <br>
             <form action="" id="signup-form">
-                <label for="register-username">Username:</label>
-                <input type="text" id="register-username" name = "new-username" required>
+                <input type="text" id="register-username" name = "new-username" placeholder="Username" required>
                 <br>
-                <label for="register-password">Password:&nbsp;</label>
-                <input type="password" id="register-password" name = "new-password" required> 
+                <input type="text" id = "f-name" name = "name" placeholder="Name">
+                <br>
+                <input type="password" id="register-password" name = "new-password" placeholder = "Password" required> 
+                <br>
+                <input type="password" id="confirm-password" name = "new-password" placeholder="Confirm Password" required> 
                 <br>
                 <input type="checkbox" id="show-register-password" onclick="togglePasswordVisibility('register-password', 'show-register-password')">
                 <label for="show-password">Show Password</label>
